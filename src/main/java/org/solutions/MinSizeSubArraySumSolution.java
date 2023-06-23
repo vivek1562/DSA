@@ -1,4 +1,4 @@
-package org.example;
+package org.solutions;
 
 public class MinSizeSubArraySumSolution {
     public int minSubArrayLen(int target, int[] nums) {
