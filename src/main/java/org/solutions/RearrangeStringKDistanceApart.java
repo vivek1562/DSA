@@ -26,7 +26,9 @@ public class RearrangeStringKDistanceApart {
         StringBuilder sb = new StringBuilder();
         while(!pq.isEmpty()){
             List<Pair> tmp = new ArrayList<>();// this is to avoid picking up same char in the same k-segment.
-            int d = Math.min(k, len);   // example str = aaabbbccd k = 4. This condition would trigger at sb = addarc
+            // example str = aaabbbccd k = 4. This condition would trigger at sb = addarc.
+            // There must be d unique characters in the PriorityQueue else it won't be possible to keep them k distance apart.
+            int d = Math.min(k, len);
             for(int i=0; i< d; i++){
                 if(pq.isEmpty()) return ""; // instead of returning we were adding to wait time in TaskScheduler problem;
                 Pair p = pq.poll();
