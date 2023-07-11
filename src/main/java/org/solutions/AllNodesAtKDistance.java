@@ -10,7 +10,7 @@ public class AllNodesAtKDistance {
         TreeNode right;
         TreeNode(int x) { val = x; }
     }
-    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+    public static List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
 
         Map<TreeNode, List<TreeNode>> adjList = new HashMap<>();
         createParentMap(root, null, adjList);
@@ -44,7 +44,7 @@ public class AllNodesAtKDistance {
         return ans;
     }
 
-    public void createParentMap(TreeNode root, TreeNode parent, Map<TreeNode, List<TreeNode>> adjList) {
+    public static void createParentMap(TreeNode root, TreeNode parent, Map<TreeNode, List<TreeNode>> adjList) {
         if(root==null)
             return;
 
