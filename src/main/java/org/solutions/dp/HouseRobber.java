@@ -22,4 +22,19 @@ public class HouseRobber {
 
             return cache[curr]=answer;
         }
+
+        public static int tabulation(int[] nums) {
+            int n = nums.length;
+            if(n==0)
+                return 0;
+            else if(n==1)
+                return nums[0];
+            int[] cache = new int[n];
+            cache[n-1] = nums[n-1];
+            cache[n-2] = Math.max(nums[n-1], nums[n-2]);
+            for(int i=n-3; i>=0; i--) {
+                cache[i] = Math.max(nums[i]+cache[i+2], cache[i+1]);
+            }
+            return cache[0];
+        }
 }

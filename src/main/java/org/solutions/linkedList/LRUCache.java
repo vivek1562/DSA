@@ -15,8 +15,8 @@ public class LRUCache {
             }
         }
 
-        Map<Integer, Node> cache;
-        Node first, last;
+        Map<Integer, Node> cache; //To store the nodes
+        Node first, last; // To keep track of least recently used
         int capacity;
 
 
