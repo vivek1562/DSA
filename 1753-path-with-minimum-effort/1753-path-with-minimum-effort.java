@@ -16,8 +16,7 @@ class Solution {
         while(!pq.isEmpty()) {
             int[] curr = pq.poll();
             int d = curr[0], r = curr[1], c = curr[2];
-            if(d>dist[r][c])
-                continue;
+            
             if (r == m - 1 && c == n - 1) 
                 return d;
 
