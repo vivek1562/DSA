@@ -17,6 +17,7 @@ class Solution {
         Set<Pair<Integer, Integer>> s = new HashSet<>();
         Queue<int[]> q = new LinkedList<>();
 
+        //return if no nodes or [[]] blank only node
         if(n==0 || (n==1 && graph[0].length==0))
             return 0;
 
@@ -24,6 +25,7 @@ class Solution {
             q.offer(new int[] {i, 1<<i});
             s.add(new Pair(i, 1<<i));
         }
+        
         
         while(!q.isEmpty()) {
             int sz = q.size();
@@ -35,6 +37,7 @@ class Solution {
 
                 for(int node : graph[currNode]) {
                     int newMask = mask | 1<<node;
+                    //if we check for answer after popping i.e. mask of currently popper element then won't need the [[]] case check
                     if(newMask == (1<<n)-1)
                         return ans;
 
