@@ -11,9 +11,6 @@ class Solution {
             if(currLoss<ans[0]) {
                 ans[0] = currLoss;
                 ans[1] = i;
-            } else if(currLoss==ans[0] && i<ans[1]) {
-                ans[0] = currLoss;
-                ans[1] = i;
             }
             if(i<n && customers.charAt(i)=='Y')
                 yLeft--;
