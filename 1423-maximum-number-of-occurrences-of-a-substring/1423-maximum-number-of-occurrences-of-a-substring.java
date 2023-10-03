@@ -2,13 +2,13 @@ class Solution {
     public int maxFreq(String s, int maxLetters, int minSize, int maxSize) {
         Map<String, Integer> count = new HashMap<>();
         int ans=0, unique=0, j=0;
-        Map<Character, Integer> set = new HashMap<>();
+        int[] set = new int[26];
         while(j<minSize) {
             char c = s.charAt(j);
-            if(set.getOrDefault(c, 0)==0) {
+            if(set[c-'a']==0) {
                 unique++;
             }
-            set.put(c, set.getOrDefault(c, 0)+1);
+            set[c-'a']++;
             j++;
         }
 
@@ -21,14 +21,14 @@ class Solution {
             }
 
             char l = s.charAt(i);
-            set.put(l, set.getOrDefault(l, 0)-1);
-            if(set.getOrDefault(l, 0)==0)
+            set[l-'a']--;
+            if(set[l-'a']==0)
                     unique--;
 
             if(i+minSize<s.length()) {
                 char r = s.charAt(i+minSize);
-                set.put(r, set.getOrDefault(r, 0)+1);
-                if(set.getOrDefault(r, 0)==1)
+                set[r-'a']++;
+                if(set[r-'a']==1)
                     unique++;
             }
         }
