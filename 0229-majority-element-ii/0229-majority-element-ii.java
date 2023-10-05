@@ -5,15 +5,9 @@ class Solution {
         Integer m1=null, m2=null;
         int c1=0, c2=0;
         for(int i=0; i<n; i++) {
-            if(m1==null) {
+            if(m1!=null && m1==nums[i]) {
                 c1++;
-                m1 = nums[i];
-            } else if(nums[i]!=m1 && m2==null) {
-                c2++;
-                m2 = nums[i];
-            } else if(m1==nums[i]) {
-                c1++;
-            } else if(m2==nums[i]) {
+            } else if(m2!=null && m2==nums[i]) {
                 c2++;
             } else if(c1==0) {
                 m1 = nums[i];
