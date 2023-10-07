@@ -20,8 +20,8 @@ class Solution {
         if(dp[i][maxSoFar][cost]!=null)
             return dp[i][maxSoFar][cost];
         
-        if(cost>K)
-            return 0;
+        // if(cost>K)
+        //     return 0;
 
         int ans = 0;
         for(int j=1; j<=M; j++) {
