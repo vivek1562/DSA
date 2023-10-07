@@ -4,7 +4,8 @@ class Solution {
         long currSum = 0;
         Deque<Integer> dq = new ArrayDeque<>();
         while(r<n) {
-            while(!dq.isEmpty() && chargeTimes[dq.peekLast()]<chargeTimes[r]) {
+            //window expansion phase
+            while(!dq.isEmpty() && chargeTimes[dq.peekLast()]<chargeTimes[r]) { //maintain monotonically decreasing deque. ensure that leftmost element is maximum
                 dq.pollLast();
             }
             dq.offerLast(r);
@@ -18,7 +19,8 @@ class Solution {
                     dq.pollFirst();
                 temp = (r-l+1)*currSum + chargeTimes[dq.peekFirst()];
             }
-            if(temp<=budget)
+
+            if(temp<=budget)    //contribution to answer if valid
                 ans = Math.max(ans, r-l+1);
             r++;
         }
