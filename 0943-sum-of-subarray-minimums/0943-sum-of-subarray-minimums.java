@@ -4,29 +4,14 @@ class Solution {
         long ans=0;
         int[] leftSmallest = new int[n], rightSmallest = new int[n];
         Stack<Integer> s = new Stack<>();
-        for(int i=0; i<n; i++) {
-            while(!s.isEmpty() && arr[s.peek()]>arr[i]) {   //not here
-                s.pop();
-            }
-            if(s.isEmpty())
-                leftSmallest[i] = -1;
-            else
-                leftSmallest[i] = s.peek();
-            s.push(i);
-        }
 
-        s.clear();
-        for(int i=n-1; i>=0; i--) {
-            while(!s.isEmpty() && arr[s.peek()]>=arr[i]) { //equality here if we use equality twice then repeated subarrays are considered
-                s.pop();
+        for(int i=0; i<=n; i++) {   //getting prev smaller and next smaller of popped element from stack and adding its contribution to answer
+            while(!s.isEmpty() && (i==n || arr[s.peek()]>arr[i])) {   //not here
+                int j = s.pop();
+                leftSmallest[j] = s.isEmpty() ? -1 : s.peek();
+                ans = (ans+((((j-leftSmallest[j])*(i-j))%mod)*(long)arr[j])%mod)%mod;
             }
-            if(s.isEmpty())
-                rightSmallest[i] = n;
-            else
-                rightSmallest[i] = s.peek();
             s.push(i);
-
-            ans = (ans+((((i-leftSmallest[i])*(rightSmallest[i]-i))%mod)*(long)arr[i])%mod)%mod;
         }
 
         return (int)ans;
