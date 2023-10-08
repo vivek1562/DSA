@@ -15,10 +15,11 @@ class Solution {
         if(dp[i][j]!=Integer.MIN_VALUE)
             return dp[i][j];
         
-        int ans = nums1[i]*nums2[j] + Math.max(recur(i+1, j+1, nums1, nums2), 0);
+        long ans = nums1[i]*nums2[j];
+        ans = Math.max(ans, ans+(long)recur(i+1, j+1, nums1, nums2));
         ans = Math.max(ans, recur(i+1, j, nums1, nums2));
         ans = Math.max(ans, recur(i, j+1, nums1, nums2));
 
-        return dp[i][j] = ans;
+        return dp[i][j] = (int)ans;
     }
 }
