@@ -22,7 +22,7 @@ class Solution {
             else
                 hi = mid-1;
         }
-        if(hi<n && hi>-1 && nums[hi]==target) {
+        if(hi>-1 && nums[hi]==target) {
             last = hi;
         }
 
