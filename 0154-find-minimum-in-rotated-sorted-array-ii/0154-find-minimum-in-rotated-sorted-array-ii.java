@@ -4,7 +4,8 @@ class Solution {
 
         while(lo<=hi) {
             mid = lo+(hi-lo)/2;
-            if(mid!=lo && mid!=hi && nums[mid]==nums[lo] && nums[mid]==nums[hi]) {
+            if(nums[mid]==nums[lo] && nums[mid]==nums[hi]) {
+                ans = Math.min(ans, nums[mid]);
                 lo++;
                 hi--;
             } else if(nums[mid]>nums[hi]) {
