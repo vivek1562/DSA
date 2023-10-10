@@ -26,12 +26,10 @@ class Solution {
         if(root==null)
             return root;
 
-        if(root.right!=null && root.left!=null) {
-            root.left.next = root.right;
-        } else if(root.left!=null) {
-            root.left.next = findNext(root.next);
+        if(root.left!=null) {
+            root.left.next = root.right!=null ? root.right : findNext(root.next);
         }
-        
+
         if(root.right!=null) {
             root.right.next = findNext(root.next);
         } 
