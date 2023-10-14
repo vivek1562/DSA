@@ -5,7 +5,6 @@ class Solution {
         dp = new int[cost.length];
         Arrays.fill(dp, -1);
         int cost0 = recur(0, cost);
-        Arrays.fill(dp, -1);
         int cost1 = recur(1, cost);
         return Math.min(cost0, cost1);
     }
